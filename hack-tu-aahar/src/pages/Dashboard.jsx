@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Thermometer, Droplet, Wind, CloudRain } from "lucide-react";
 import NpkPlot from "../components/NpkValues.jsx";
+import LanguageSwitcher from "../languageSwitcher.jsx";
 
 const CircularProgressBar = ({ percent, color }) => {
   const displayPercent = Math.max(0, Math.min(100, percent));
@@ -10,8 +11,8 @@ const CircularProgressBar = ({ percent, color }) => {
     circumference - (displayPercent / 100) * circumference;
 
   return (
-    <div className="relative w-16 h-16">
-      <svg className="w-full h-full">
+    <div className="relative w-16 h-16" data-translate="message">
+      <svg className="w-full h-full" data-translate="message">
         <circle
           cx="50%"
           cy="50%"
@@ -19,6 +20,7 @@ const CircularProgressBar = ({ percent, color }) => {
           stroke="#e5e5e5"
           strokeWidth="4"
           fill="none"
+          data-translate="message"
         />
         <circle
           cx="50%"
@@ -31,10 +33,19 @@ const CircularProgressBar = ({ percent, color }) => {
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
           className="transition-all duration-500"
+          data-translate="message"
         />
       </svg>
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-sm font-bold text-gray-700">%</span>
+      <div
+        className="absolute inset-0 flex items-center justify-center"
+        data-translate="message"
+      >
+        <span
+          className="text-sm font-bold text-gray-700"
+          data-translate="message"
+        >
+          %
+        </span>
       </div>
     </div>
   );
@@ -42,11 +53,21 @@ const CircularProgressBar = ({ percent, color }) => {
 
 const PerformanceCard = ({ percentage, label, status, color }) => {
   return (
-    <div className="flex items-center p-4 bg-white rounded-lg shadow-lg space-x-4">
+    <div
+      className="flex items-center p-4 bg-white rounded-lg shadow-lg space-x-4"
+      data-translate="message"
+    >
       <CircularProgressBar percent={percentage} color={color} />
-      <div>
-        <div className="text-sm text-gray-500">{label}</div>
-        <div className="text-lg font-bold text-gray-900">{status}</div>
+      <div data-translate="message">
+        <div className="text-sm text-gray-500" data-translate="message">
+          {label}
+        </div>
+        <div
+          className="text-lg font-bold text-gray-900"
+          data-translate="message"
+        >
+          {status}
+        </div>
       </div>
     </div>
   );
@@ -54,7 +75,11 @@ const PerformanceCard = ({ percentage, label, status, color }) => {
 
 const MapEmbed = () => {
   return (
-    <div className="map-container" style={{ width: "100%", height: "100%" }}>
+    <div
+      className="map-container"
+      style={{ width: "100%", height: "100%" }}
+      data-translate="message"
+    >
       <iframe
         title="OpenStreetMap Embed"
         width="100%"
@@ -62,13 +87,15 @@ const MapEmbed = () => {
         src="https://www.openstreetmap.org/export/embed.html?bbox=75.81739068031311%2C30.909503933512447%2C75.82031428813936%2C30.91121146871617&layer=mapnik"
         style={{ border: "1px solid black" }}
         allowFullScreen
+        data-translate="message"
       ></iframe>
-      <br />
-      <small>
+      <br data-translate="message" />
+      <small data-translate="message">
         <a
           href="https://www.openstreetmap.org/?#map=19/30.910358/75.818852"
           target="_blank"
           rel="noopener noreferrer"
+          data-translate="message"
         ></a>
       </small>
     </div>
@@ -77,12 +104,18 @@ const MapEmbed = () => {
 
 function MetricDisplay({ Icon, label, value, unit }) {
   return (
-    <div className="flex flex-col items-center">
-      <Icon className="h-12 w-12 text-black" />
-      <span className="text-gray-500 text-m">{label}</span>
-      <span className="text-black text-lg font-bold">
+    <div className="flex flex-col items-center" data-translate="message">
+      <Icon className="h-12 w-12 text-black" data-translate="message" />
+      <span className="text-gray-500 text-m" data-translate="message">
+        {label}
+      </span>
+      <span className="text-black text-lg font-bold" data-translate="message">
         {value}
-        {unit && <span className="text-sm align-super">{unit}</span>}
+        {unit && (
+          <span className="text-sm align-super" data-translate="message">
+            {unit}
+          </span>
+        )}
       </span>
     </div>
   );
@@ -127,7 +160,7 @@ function PredictionPerformanceCards() {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-4 m-5">
+    <div className="grid grid-cols-4 gap-4 m-5" data-translate="message">
       {predictionMetrics.map((value, index) => (
         <PerformanceCard
           key={index}
@@ -144,19 +177,31 @@ function Dashboard() {
   const npkData = useNPKValues();
 
   return (
-    <div>
+    <div data-translate="message">
       {/* Weather & Map Section */}
-      <div className="grid grid-cols-3 gap-4 m-4">
-        <div className="bg-white-500 col-span-1 p-4 rounded-lg shadow-2xl">
-          <div className="flex justify-between">
-            <div className="font-roboto font-semibold text-black text-xl">
+      <div className="grid grid-cols-3 gap-4 m-4" data-translate="message">
+        <div
+          className="bg-white-500 col-span-1 p-4 rounded-lg shadow-2xl"
+          data-translate="message"
+        >
+          <div className="flex justify-between" data-translate="message">
+            <div
+              className="font-roboto font-semibold text-black text-xl"
+              data-translate="message"
+            >
               Weather
             </div>
-            <div className="font-roboto font-semibold text-black text-xl">
+            <div
+              className="font-roboto font-semibold text-black text-xl"
+              data-translate="message"
+            >
               27°C
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-4 mt-8 mb-4">
+          <div
+            className="grid grid-cols-4 gap-4 mt-8 mb-4"
+            data-translate="message"
+          >
             <MetricDisplay
               Icon={Thermometer}
               label="Soil Temp"
@@ -178,29 +223,37 @@ function Dashboard() {
             />
           </div>
         </div>
-        <div className="bg-white-500 col-span-2 p-4 rounded-lg shadow-2xl">
-          <div className="font-bold text-2xl m-0.5">My Field</div>
+        <div
+          className="bg-white-500 col-span-2 p-4 rounded-lg shadow-2xl"
+          data-translate="message"
+        >
+          <div className="font-bold text-2xl m-0.5" data-translate="message">
+            My Field
+          </div>
           <MapEmbed />
         </div>
       </div>
 
       {/* Static Performance Cards Section */}
-      <div>
-        <div className="grid grid-cols-6 gap-4 m-5">
-          <PerformanceCard
+      <div data-translate="message">
+        <div className="grid grid-cols-6 gap-4 m-5" data-translate="message">
+          {/* <PerformanceCard
             percentage={80}
             label="Soil Health"
             status="Good"
             color={"olive"}
-          />
+          /> */}
           {/* <PerformanceCard percentage={80} label="Soil Health" status="Good" />
           <PerformanceCard percentage={80} label="Soil Health" status="Good" />
           <PerformanceCard percentage={80} label="Soil Health" status="Good" /> */}
         </div>
       </div>
       {/* Prediction Performance Cards Section */}
-      <div className="mt-8">
-        <h2 className="text-2xl font-bold text-gray-800 m-4">
+      <div className="mt-8" data-translate="message">
+        <h2
+          className="text-2xl font-bold text-gray-800 m-4"
+          data-translate="message"
+        >
           Prediction Metrics
         </h2>
         <PredictionPerformanceCards />
