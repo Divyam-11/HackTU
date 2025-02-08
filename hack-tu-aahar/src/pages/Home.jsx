@@ -6,7 +6,7 @@ function Home() {
   return (
     <>
       <div className="grid sm:grid-cols-3 grid-cols-2 m-auto">
-        <div className="col-span-2 m-5">
+        <div className="col-span-2 m-5 ">
           <p className="font-roboto font-semibold text-8xl m-5">
             Sustainable <br /> farming for better tomorrow
           </p>
@@ -25,7 +25,7 @@ function Home() {
         What We Provide:
       </div>
       <div className="grid sm:grid-cols-2 grid-cols-2 ">
-        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl">
+        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
           <div className="font-roboto font-semibold text-3xl m-5 flex items-center justify-center">
             <img
               src={question_mark}
@@ -40,7 +40,7 @@ function Home() {
             aquatic ecosystems.
           </p>
         </div>
-        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl">
+        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
           <div className="font-roboto font-semibold text-3xl m-5 flex items-center justify-center">
             <img
               src={question_mark}
@@ -55,7 +55,7 @@ function Home() {
             economic sustainability.
           </p>
         </div>
-        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl">
+        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
           <div className="font-roboto font-semibold text-3xl m-5 flex items-center justify-center">
             <img
               src={question_mark}
@@ -70,7 +70,7 @@ function Home() {
             within agricultural communities.
           </p>
         </div>
-        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl">
+        <div className="col-span-1 m-5 bg-white-300 rounded-2xl p-4 shadow-2xl transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110">
           <div className="font-roboto font-semibold text-3xl m-5 flex items-center justify-center">
             <img
               src={question_mark}
