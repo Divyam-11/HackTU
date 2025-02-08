@@ -193,15 +193,11 @@ function Dashboard() {
             status="Good"
             color={"olive"}
           />
+          {/* <PerformanceCard percentage={80} label="Soil Health" status="Good" />
           <PerformanceCard percentage={80} label="Soil Health" status="Good" />
-          <PerformanceCard percentage={80} label="Soil Health" status="Good" />
-          <PerformanceCard percentage={80} label="Soil Health" status="Good" />
+          <PerformanceCard percentage={80} label="Soil Health" status="Good" /> */}
         </div>
       </div>
-
-      {/* NPK Plot Section */}
-      <NpkPlot data={npkData} />
-
       {/* Prediction Performance Cards Section */}
       <div className="mt-8">
         <h2 className="text-2xl font-bold text-gray-800 m-4">
@@ -209,6 +205,8 @@ function Dashboard() {
         </h2>
         <PredictionPerformanceCards />
       </div>
+      {/* NPK Plot Section */}
+      <NpkPlot data={npkData} />
     </div>
   );
 }
