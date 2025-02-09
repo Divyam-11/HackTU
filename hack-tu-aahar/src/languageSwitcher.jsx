@@ -37,26 +37,37 @@ const LanguageSwitcher = () => {
 };
 
 const translatePage = async (targetLang) => {
+  // Select all elements with the "data-translate" attribute.
   const elements = document.querySelectorAll("[data-translate]");
 
   const translationPromises = Array.from(elements).map(async (element) => {
-    const originalText = element.dataset.originalText || element.innerText;
-
-    if (!element.dataset.originalText) {
-      element.dataset.originalText = originalText;
+    // Store original HTML if not already done.
+    const originalHtml = element.dataset.originalHtml || element.innerHTML;
+    if (!element.dataset.originalHtml) {
+      element.dataset.originalHtml = originalHtml;
     }
 
+    // If the target language is English, revert to the original HTML.
     if (targetLang === "English") {
-      element.innerText = originalText;
+      element.innerHTML = originalHtml;
       return;
     }
 
+    // Replace <br> tags with a placeholder.
+    const textForTranslation = originalHtml.replace(/<br\s*\/?>/g, "[br]");
+
+    // Translate the text.
     const translatedText = await translateText(
-      originalText,
+      textForTranslation,
       "English",
       targetLang
     );
-    element.innerText = translatedText;
+
+    // Restore the <br> tags from the placeholder.
+    const translatedHtml = translatedText.replace(/\[br\]/g, "<br/>");
+
+    // Update the element's HTML.
+    element.innerHTML = translatedHtml;
   });
 
   await Promise.all(translationPromises);
