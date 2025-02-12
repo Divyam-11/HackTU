@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Chatbot from "./components/ChatBot";
 import DiseaseDetection from "./pages/Disease";
-import Marketplace from "./pages/Marketplace";
+import Marketplace from "./pages/Marketplace.jsx";
 function App() {
   return (
     <>
